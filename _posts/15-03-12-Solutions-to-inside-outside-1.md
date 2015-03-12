@@ -17,12 +17,12 @@ However, in our case the problem is simplified by the following facts:
 So, subsequent discussion has significance only for _concave_ boundaries. So an algorithm for marking polygons can be like this:  
 
 ```
-1 Add all polygons of mesh in a queue _Q_
-1.1 For each polygon _P_:
-1.1.1 Compute Barycenter _b_
-1.1.2 Generate a ray _r_ in random direction emanating from _b_
-1.1.3 Compute intersections with each segment of polygonal boundary
-1.1.4 Count number of _unique_ intersections, i.e., discard identical intersection points.
-1.1.5 If number of intersections are _even_, mark _P_ as _outside_, else mark _P_ as _inside_  
-2 Repeat 1 untill _Q_ is not Null 
+1 Add all polygons of mesh in a queue 'Q'
+  1.1 For each polygon 'P':
+    1.1.1 Compute Barycenter 'b'
+    1.1.2 Generate a ray 'r' in random direction emanating from 'b'
+    1.1.3 Compute intersections with each segment of polygonal boundary
+    1.1.4 Count number of unique intersections, i.e., discard identical intersection points.
+    1.1.5 If number of intersections are 'even', mark 'P' as 'outside', else mark 'P' as 'inside'  
+2 Repeat 1 untill 'Q' is not Null 
 ```
