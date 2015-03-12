@@ -6,9 +6,10 @@ layout: default
   {{ page.title }}
  </h2>
 {{ content }}
-{% if page.date %}
+<b>Written on {% if page.date %}
     <small>{{ page.date | date_to_string }}</small>
 {% endif %}
+</b>
 
 {% include disqus.html %}
 
