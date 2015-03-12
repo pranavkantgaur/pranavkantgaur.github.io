@@ -29,6 +29,7 @@ So, subsequent discussion has significance only for _concave_ boundaries. An alg
 Currently, this seems to solve the marking problem in two-dimensional domain but I am keen to have your comments on this. Assuming this approach to be correct, I come back to my original problem of marking 3-cells as _inside_ or _outside_ the given ROI. I think it only amounts to extending above presented approach to 3D domain by replacing triangles _T_ with tetrahedrons and the ROI becomes a polyhedron instead of a polygon. 
 
 Specifically, a 3D version of the above algorithm may look like:
+
 ```
 1 Add all tetrahedrons of the tetrahedralization in a queue 'Q'
   1.1 For each tetrahedron 'T' in 'Q':
@@ -38,7 +39,6 @@ Specifically, a 3D version of the above algorithm may look like:
     1.1.4 Count the number of unique intersections, i.e., discard identical intersection points.
     1.1.5 If the number of intersections are 'even', mark 'T' as 'outside', else mark 'T' as 'inside'  
 2 Repeat 1 until 'Q' is not Null 
-
 ```
 
 Rough tracing on paper on some toy input examples seems to suggest this approach should work in case of 3D domain as well. But I will be implementing it now. I will report results in the posts to follow.
