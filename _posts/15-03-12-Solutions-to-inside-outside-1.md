@@ -11,17 +11,18 @@ First obvious approach to this problem is the extension of the existing solution
 Common approach called the _ray casting_ algorithm involves casting a ray in random direction from the query point and compute _number of intersections_ it had with the boundary of the polygon. If number of intersections are _even_ it implies that the point is _inside_ else the point is marked as _outside_ the polygon boundary. Degenerate condition for this algorithm is when the point lies _very near_(or onto) to the boundary of the polygon, in which case the marking based on number of intersections fails in general.
 
 However, in our case the problem is simplified by the following facts:  
-1. _Point_ will not be arbitrarily positioned but a _representative_ of the query polygon say the [barycenter](en.wiktionary.org/wiki/barycenter) of the query polygon.
+1. _Point_ will not be arbitrarily positioned but a _representative_ of the query polygon say the [barycenter](en.wiktionary.org/wiki/barycenter) of the query polygon.  
 2. If the polygonal boundary is _convex_ we do not have to deal with this problem at all because all polygons will be _inside_. 
 
 So, subsequent discussion has significance only for _concave_ boundaries. So an algorithm for marking polygons can be like this:  
+
 ```
-1 Add all polygons of mesh in a queue _Q_  
-	1.1 For each polygon _P_:  
-		1.1.1 Compute Barycenter _b_ 
-		1.1.2 Generate a ray _r_ in random direction emanating from _b_  
-		1.1.3 Compute intersections with each segment of polygonal boundary  
-		1.1.4 Count number of _unique_ intersections, i.e., discard identical intersection points.
-		1.1.5 If number of intersections are _even_, mark _P_ as _outside_, else mark _P_ as _inside_
-2 Repeat 1 untill _Q_ is not Null. 
+1 Add all polygons of mesh in a queue _Q_
+1.1 For each polygon _P_:
+1.1.1 Compute Barycenter _b_
+1.1.2 Generate a ray _r_ in random direction emanating from _b_
+1.1.3 Compute intersections with each segment of polygonal boundary
+1.1.4 Count number of _unique_ intersections, i.e., discard identical intersection points.
+1.1.5 If number of intersections are _even_, mark _P_ as _outside_, else mark _P_ as _inside_  
+2 Repeat 1 untill _Q_ is not Null 
 ```
