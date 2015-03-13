@@ -7,4 +7,4 @@ I have been trying to implement the solution to 3-cell marking problem that I di
 
 C++ requires using a hash function for doing comparision while inserting an element in the set. Since my _elements_ are three dimensional, I need to find out an _effective_ hash function for multi-dimensional structures. 
 
-So, this post will contain an active list of hash functions that I find on internet proposed for multdimensional structures. 
+So, this post will contain an active list of hash functions that I find on internet proposed for multidimensional structures. 
